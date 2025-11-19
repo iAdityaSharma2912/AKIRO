@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AKIRO AI Learning Companion Design System
+Educational, clean & bright color palette with modern typography
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Educational Color Palette */
+    --background: 219 13% 97%; /* #F9FAFB Soft Gray */
+    --foreground: 217 33% 17%; /* #111827 Slate Black */
+
+    --card: 0 0% 100%; /* Pure White */
+    --card-foreground: 217 33% 17%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 217 33% 17%;
+
+    /* Primary: Bright Blue for main actions */
+    --primary: 217 91% 60%; /* #2563EB */
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 217 91% 55%;
+
+    /* Secondary: Soft neutral for backgrounds */
+    --secondary: 210 20% 98%; /* #F8FAFC */
+    --secondary-foreground: 217 33% 17%;
+
+    /* Muted elements */
+    --muted: 214 32% 91%; /* #E2E8F0 */
+    --muted-foreground: 215 16% 47%; /* #64748B */
+
+    /* Accent: Green for progress & success */
+    --accent: 142 76% 36%; /* #10B981 */
+    --accent-foreground: 0 0% 98%;
+    --accent-hover: 142 76% 31%;
+
+    /* Warning: Amber for highlights */
+    --warning: 38 92% 50%; /* #F59E0B */
+    --warning-foreground: 26 83% 14%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 214 32% 91%; /* #E2E8F0 */
+    --input: 214 32% 91%;
+    --ring: 217 91% 60%; /* Match primary */
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Inter',sans-serif];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  p {
+    @apply leading-7;
+  }
+}
+
+@layer components {
+  /* Educational Components */
+  .card-elevated {
+    @apply bg-card rounded-xl shadow-lg border border-border p-6;
+  }
+
+  .card-interactive {
+    @apply card-elevated hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-6 py-3 rounded-lg transition-colors;
+  }
+
+  .btn-accent {
+    @apply bg-accent hover:bg-accent/90 text-accent-foreground font-medium px-6 py-3 rounded-lg transition-colors;
+  }
+
+  .btn-warning {
+    @apply bg-warning hover:bg-warning/90 text-warning-foreground font-medium px-6 py-3 rounded-lg transition-colors;
+  }
+
+  .progress-bar {
+    @apply bg-muted rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply bg-accent h-full transition-all duration-500 rounded-full;
+  }
+
+  .timeline-item {
+    @apply relative pl-8 pb-8 last:pb-0;
+  }
+
+  .timeline-item::before {
+    @apply absolute left-3 top-0 w-0.5 h-full bg-muted content-[''];
+  }
+
+  .timeline-item::after {
+    @apply absolute left-2 top-2 w-2 h-2 bg-accent rounded-full content-[''];
+  }
+
+  .timeline-item.completed::after {
+    @apply bg-accent;
+  }
+
+  .timeline-item.current::after {
+    @apply bg-primary ring-4 ring-primary/20;
+  }
+}
